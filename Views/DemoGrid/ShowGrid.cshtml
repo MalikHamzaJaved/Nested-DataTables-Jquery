@@ -1,0 +1,765 @@
+﻿@{
+    Layout = null;
+}
+
+
+<link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+<style>
+    td.details-control {
+        text-align: center;
+        color: forestgreen;
+        cursor: pointer;
+    }
+
+    tr.shown td.details-control {
+        text-align: center;
+        color: red;
+    }
+</style>
+
+
+
+
+<div class="container">
+    <h2>Test Demo For saad</h2>
+
+    <table width="100%" class="table table-hover" id="example">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Id</th>
+                <th>title</th>
+                <th>description</th>
+                <th>dateCreated</th>
+                <th>createdBy</th>
+                <th>datetime</th>
+                <th>timezone</th>
+                <th>isTeleHealth</th>
+                <th>startDatetime</th>
+                <th>endDatetime</th>
+                <th>consentDatetime</th>
+                <th>isComplete</th>
+                <th>isConsent</th>
+                <th>isQuestionnairDone</th>
+                <th>questionnairDatetime</th>
+                <th>isCancelled</th>
+                <th>cancelDatetime</th>
+                <th>sendSms</th>
+                <th>sendEmail</th>
+                <th>providerName</th>
+                <th>providerId</th>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>email</th>
+                <th>dob</th>
+                <th>cellPhone</th>
+                <th>orgName</th>
+                <th>orgId</th>
+                <th>consentFileUri</th>
+                <th>receiptFileUri</th>
+                <th>paymentEmail</th>
+                <th>logoFileUri</th>
+                <th>collectPayment</th>
+                <th>allowBillMe</th>
+                <th>billMe</th>
+                <th>paymentAmount</th>
+                <th>paySessionId</th>
+                <th>payDatetime</th>
+                <th>payStatus</th>
+                <th>stripeAcountId</th>
+                <th>paymentIntentId</th>
+                <th>checkInStep</th>
+                <th>hasQuestionnair</th>
+                <th>questionnaireTemplateId</th>
+                <th>updateDatetime</th>
+                <th>responceDatetime</th>
+                <th>responce</th>
+                <th>type</th>
+                <th>questionnaireAnsweres</th>
+                <th>smsLogs</th>
+                <th>appointmentStates</th>
+                <th>orgnization</th>
+              
+
+
+            </tr>
+        </thead>
+
+    </table>
+</div>
+
+
+<script>
+
+
+    //To test for Demo Data Given below in an arayh you can do is remove ajax call and use line ("data": testdata.data) it will then work for the dummy data given below as well.
+
+    $(document).ready(function () {
+
+        var table = $('#example').DataTable({
+
+            //"ajax": "/DemoGrid/LoadDataTest",
+            "data": testdata.data,
+            select: "single",
+            "scrollX": true,
+            "columns": [
+                {
+                    "className": 'details-control',
+                    "orderable": false,
+                    "data": null,
+                    "defaultContent": '',
+                    "render": function () {
+                        return '<i class="fa fa-plus-square" aria-hidden="true"></i>';
+                    },
+                    width: "15px"
+                },
+                { "data": "id" },
+                { "data": "title" },
+                { "data": "description" },
+                { "data": "dateCreated" },
+                { "data": "createdBy" },
+                { "data": "datetime" },
+                { "data": "timezone" },
+                { "data": "isTeleHealth" },
+                { "data": "startDatetime" },
+                { "data": "endDatetime" },
+                { "data": "consentDatetime" },
+                { "data": "isComplete" },
+                { "data": "isConsent" },
+                { "data": "isQuestionnairDone" },
+                { "data": "questionnairDatetime" },
+                { "data": "isCancelled" },
+                { "data": "cancelDatetime" },
+                { "data": "sendSms" },
+                { "data": "sendEmail" },
+                { "data": "providerName" },
+                { "data": "providerId" },
+                { "data": "firstName" },
+                { "data": "lastName" },
+                { "data": "email" },
+                { "data": "dob" },
+                { "data": "cellPhone" },
+                { "data": "orgName" },
+                { "data": "orgId" },
+                { "data": "consentFileUri" },
+                { "data": "receiptFileUri" },
+                { "data": "paymentEmail" },
+                { "data": "logoFileUri" },
+                { "data": "collectPayment" },
+                { "data": "allowBillMe" },
+                { "data": "billMe" },
+                { "data": "paymentAmount" },
+                { "data": "paySessionId" },
+                { "data": "payDatetime" },
+                { "data": "payStatus" },
+                { "data": "stripeAcountId" },
+                { "data": "paymentIntentId" },
+                { "data": "checkInStep" },
+                { "data": "hasQuestionnair" },
+                { "data": "questionnaireTemplateId" },
+                { "data": "updateDatetime" },
+                { "data": "responceDatetime" },
+                { "data": "responce" },
+                { "data": "type" },
+                { "data": "questionnaireAnsweres" },
+                { "data": "smsLogs" },
+                { "data": "appointmentStates" },
+                { "data": "orgnization" },
+              
+
+
+
+            ],
+            "order": [[1, 'asc']]
+        });
+
+        // Add event listener for opening and closing details
+        $('#example tbody').on('click', 'td.details-control', function () {
+            var tr = $(this).closest('tr');
+            var tdi = tr.find("i.fa");
+            var row = table.row(tr);
+
+            if (row.child.isShown()) {
+                // This row is already open - close it
+                row.child.hide();
+                tr.removeClass('shown');
+                tdi.first().removeClass('fa-minus-square');
+                tdi.first().addClass('fa-plus-square');
+            }
+            else {
+                // Open this row
+               
+                row.child(format(row.data())).show();
+                tr.addClass('shown');
+                tdi.first().removeClass('fa-plus-square');
+                tdi.first().addClass('fa-minus-square');
+
+                if (row.data().appointmentForms != null)
+                {
+                    for (let i = 0; i < row.data().appointmentForms.length; i++) {
+
+                        var dataToAppend = '<tr>' +
+                            '<td>' + row.data().appointmentForms[i].id + '</td>' +
+                            '<td>' + row.data().appointmentForms[i].questionnaireTemplateId + '</td>' +
+                            '<td>' + row.data().appointmentForms[i].title + '</td>' +
+                            '<td>' + row.data().appointmentForms[i].schema + '</td>' +
+                            '<td>' + row.data().appointmentForms[i].submission + '</td>' +
+                            '<td>' + row.data().appointmentForms[i].dateTime + '</td>' +
+                            '<td>' + row.data().appointmentForms[i].tag + '</td>' +
+                            '<td>' + row.data().appointmentForms[i].type + '</td>' +
+                            '<td>' + row.data().appointmentForms[i].uri + '</td>' +
+                            '<td>' + row.data().appointmentForms[i].accountId + '</td>' +
+                            '<td>' + row.data().appointmentForms[i].appointment + '</td>' +
+                            '<td><a class="btn btn-info" href="/DemoGrid/Edit/' + row.data().appointmentForms.id+ '">Edit</a></td>' +
+                            '</tr>';
+                        $("#childTable > tbody").append(dataToAppend);
+                    }
+                }
+
+                
+            }
+        });
+
+        table.on("user-select", function (e, dt, type, cell, originalEvent) {
+            if ($(cell.node()).hasClass("details-control")) {
+                e.preventDefault();
+            }
+        });
+
+
+    });
+
+    function format(d) {
+       
+        return '<table id="childTable" style="width:300px" class="table table-hover">' +
+            '<thead>' +
+            '<tr>' +
+            '<th>Id</th>' +
+            '<th>QuestionnaireTemplateId</th>' +
+            '<th>title</th>' +
+            '<th>schema</th>' +
+            '<th>submission</th>' +
+            '<th>dateTime</th>' +
+            '<th>tag</th>' +
+            '<th>type</th>' +
+            '<th>uri</th>' +
+            '<th>accountId</th>' +
+            '<th>appointment</th>' +
+            '<th>Button of Your Need</th>' +
+            '</tr>' +
+            '</thead>' +
+            '<tbody>' +
+
+        
+            '</table>';
+    }
+    var testdata = {
+        "data": [
+            {
+                "id": "847b7438-4a96-450a-327b-08d824048fe3",
+                "title": null,
+                "description": null,
+                "dateCreated": "2020-07-09T12:39:11.2044019",
+                "createdBy": null, "datetime": "2020-07-09T08:39:11.2044019",
+                "timezone": "Eastern Standard Time",
+                "isTeleHealth": false,
+                "startDatetime": "2020-07-09T12:39:11",
+                "endDatetime": null,
+                "consentDatetime": null,
+                "isComplete": false,
+                "isConsent": false,
+                "isQuestionnairDone": false,
+                "questionnairDatetime": null,
+                "isCancelled": false,
+                "cancelDatetime": null,
+                "sendSms": false,
+                "sendEmail": false,
+                "providerName": null,
+                "providerId": "00000000-0000-0000-0000-000000000000",
+                "firstName": "mkmkmk",
+                "lastName": "mkmkm",
+                "email": null,
+                "dob": "0001-01-01T00:00:00",
+                "cellPhone": null,
+                "orgName": "EG Clinic",
+                "orgId": "482ffaa0-f855-4477-44b7-08d7dd0b0baf",
+                "consentFileUri": null,
+                "receiptFileUri": null,
+                "paymentEmail": null,
+                "logoFileUri": null,
+                "collectPayment": false,
+                "allowBillMe": false,
+                "billMe": false,
+                "paymentAmount": 0.0,
+                "paySessionId": null,
+                "payDatetime": null,
+                "payStatus": null,
+                "stripeAcountId": null,
+                "paymentIntentId": null,
+                "checkInStep": 0,
+                "hasQuestionnair": false,
+                "questionnaireTemplateId": "00000000-0000-0000-0000-000000000000",
+                "updateDatetime": null,
+                "responceDatetime": null,
+                "responce": "Pending",
+                "type": "eForm",
+                "questionnaireAnsweres": null,
+                "smsLogs": null,
+                "appointmentStates": null,
+                "appointmentForms": [
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    },
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    }
+                ],
+                "orgnization": null
+            },
+            {
+                "id": "847b7438-4a96-450a-327b-08d824048fe3",
+                "title": null,
+                "description": null,
+                "dateCreated": "2020-07-09T12:39:11.2044019",
+                "createdBy": null, "datetime": "2020-07-09T08:39:11.2044019",
+                "timezone": "Eastern Standard Time",
+                "isTeleHealth": false,
+                "startDatetime": "2020-07-09T12:39:11",
+                "endDatetime": null,
+                "consentDatetime": null,
+                "isComplete": false,
+                "isConsent": false,
+                "isQuestionnairDone": false,
+                "questionnairDatetime": null,
+                "isCancelled": false,
+                "cancelDatetime": null,
+                "sendSms": false,
+                "sendEmail": false,
+                "providerName": null,
+                "providerId": "00000000-0000-0000-0000-000000000000",
+                "firstName": "mkmkmk",
+                "lastName": "mkmkm",
+                "email": null,
+                "dob": "0001-01-01T00:00:00",
+                "cellPhone": null,
+                "orgName": "EG Clinic",
+                "orgId": "482ffaa0-f855-4477-44b7-08d7dd0b0baf",
+                "consentFileUri": null,
+                "receiptFileUri": null,
+                "paymentEmail": null,
+                "logoFileUri": null,
+                "collectPayment": false,
+                "allowBillMe": false,
+                "billMe": false,
+                "paymentAmount": 0.0,
+                "paySessionId": null,
+                "payDatetime": null,
+                "payStatus": null,
+                "stripeAcountId": null,
+                "paymentIntentId": null,
+                "checkInStep": 0,
+                "hasQuestionnair": false,
+                "questionnaireTemplateId": "00000000-0000-0000-0000-000000000000",
+                "updateDatetime": null,
+                "responceDatetime": null,
+                "responce": "Pending",
+                "type": "eForm",
+                "questionnaireAnsweres": null,
+                "smsLogs": null,
+                "appointmentStates": null,
+                "appointmentForms": [
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    },
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    }
+                ],
+                "orgnization": null
+            },
+            {
+                "id": "847b7438-4a96-450a-327b-08d824048fe3",
+                "title": null,
+                "description": null,
+                "dateCreated": "2020-07-09T12:39:11.2044019",
+                "createdBy": null, "datetime": "2020-07-09T08:39:11.2044019",
+                "timezone": "Eastern Standard Time",
+                "isTeleHealth": false,
+                "startDatetime": "2020-07-09T12:39:11",
+                "endDatetime": null,
+                "consentDatetime": null,
+                "isComplete": false,
+                "isConsent": false,
+                "isQuestionnairDone": false,
+                "questionnairDatetime": null,
+                "isCancelled": false,
+                "cancelDatetime": null,
+                "sendSms": false,
+                "sendEmail": false,
+                "providerName": null,
+                "providerId": "00000000-0000-0000-0000-000000000000",
+                "firstName": "mkmkmk",
+                "lastName": "mkmkm",
+                "email": null,
+                "dob": "0001-01-01T00:00:00",
+                "cellPhone": null,
+                "orgName": "EG Clinic",
+                "orgId": "482ffaa0-f855-4477-44b7-08d7dd0b0baf",
+                "consentFileUri": null,
+                "receiptFileUri": null,
+                "paymentEmail": null,
+                "logoFileUri": null,
+                "collectPayment": false,
+                "allowBillMe": false,
+                "billMe": false,
+                "paymentAmount": 0.0,
+                "paySessionId": null,
+                "payDatetime": null,
+                "payStatus": null,
+                "stripeAcountId": null,
+                "paymentIntentId": null,
+                "checkInStep": 0,
+                "hasQuestionnair": false,
+                "questionnaireTemplateId": "00000000-0000-0000-0000-000000000000",
+                "updateDatetime": null,
+                "responceDatetime": null,
+                "responce": "Pending",
+                "type": "eForm",
+                "questionnaireAnsweres": null,
+                "smsLogs": null,
+                "appointmentStates": null,
+                "appointmentForms": [
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    },
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    }
+                ],
+                "orgnization": null
+            },
+            {
+                "id": "847b7438-4a96-450a-327b-08d824048fe3",
+                "title": null,
+                "description": null,
+                "dateCreated": "2020-07-09T12:39:11.2044019",
+                "createdBy": null, "datetime": "2020-07-09T08:39:11.2044019",
+                "timezone": "Eastern Standard Time",
+                "isTeleHealth": false,
+                "startDatetime": "2020-07-09T12:39:11",
+                "endDatetime": null,
+                "consentDatetime": null,
+                "isComplete": false,
+                "isConsent": false,
+                "isQuestionnairDone": false,
+                "questionnairDatetime": null,
+                "isCancelled": false,
+                "cancelDatetime": null,
+                "sendSms": false,
+                "sendEmail": false,
+                "providerName": null,
+                "providerId": "00000000-0000-0000-0000-000000000000",
+                "firstName": "mkmkmk",
+                "lastName": "mkmkm",
+                "email": null,
+                "dob": "0001-01-01T00:00:00",
+                "cellPhone": null,
+                "orgName": "EG Clinic",
+                "orgId": "482ffaa0-f855-4477-44b7-08d7dd0b0baf",
+                "consentFileUri": null,
+                "receiptFileUri": null,
+                "paymentEmail": null,
+                "logoFileUri": null,
+                "collectPayment": false,
+                "allowBillMe": false,
+                "billMe": false,
+                "paymentAmount": 0.0,
+                "paySessionId": null,
+                "payDatetime": null,
+                "payStatus": null,
+                "stripeAcountId": null,
+                "paymentIntentId": null,
+                "checkInStep": 0,
+                "hasQuestionnair": false,
+                "questionnaireTemplateId": "00000000-0000-0000-0000-000000000000",
+                "updateDatetime": null,
+                "responceDatetime": null,
+                "responce": "Pending",
+                "type": "eForm",
+                "questionnaireAnsweres": null,
+                "smsLogs": null,
+                "appointmentStates": null,
+                "appointmentForms": [
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    },
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    }
+                ],
+                "orgnization": null
+            },
+            {
+                "id": "847b7438-4a96-450a-327b-08d824048fe3",
+                "title": null,
+                "description": null,
+                "dateCreated": "2020-07-09T12:39:11.2044019",
+                "createdBy": null, "datetime": "2020-07-09T08:39:11.2044019",
+                "timezone": "Eastern Standard Time",
+                "isTeleHealth": false,
+                "startDatetime": "2020-07-09T12:39:11",
+                "endDatetime": null,
+                "consentDatetime": null,
+                "isComplete": false,
+                "isConsent": false,
+                "isQuestionnairDone": false,
+                "questionnairDatetime": null,
+                "isCancelled": false,
+                "cancelDatetime": null,
+                "sendSms": false,
+                "sendEmail": false,
+                "providerName": null,
+                "providerId": "00000000-0000-0000-0000-000000000000",
+                "firstName": "mkmkmk",
+                "lastName": "mkmkm",
+                "email": null,
+                "dob": "0001-01-01T00:00:00",
+                "cellPhone": null,
+                "orgName": "EG Clinic",
+                "orgId": "482ffaa0-f855-4477-44b7-08d7dd0b0baf",
+                "consentFileUri": null,
+                "receiptFileUri": null,
+                "paymentEmail": null,
+                "logoFileUri": null,
+                "collectPayment": false,
+                "allowBillMe": false,
+                "billMe": false,
+                "paymentAmount": 0.0,
+                "paySessionId": null,
+                "payDatetime": null,
+                "payStatus": null,
+                "stripeAcountId": null,
+                "paymentIntentId": null,
+                "checkInStep": 0,
+                "hasQuestionnair": false,
+                "questionnaireTemplateId": "00000000-0000-0000-0000-000000000000",
+                "updateDatetime": null,
+                "responceDatetime": null,
+                "responce": "Pending",
+                "type": "eForm",
+                "questionnaireAnsweres": null,
+                "smsLogs": null,
+                "appointmentStates": null,
+                "appointmentForms": [
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    },
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    }
+                ],
+                "orgnization": null
+            },
+            {
+                "id": "847b7438-4a96-450a-327b-08d824048fe3",
+                "title": null,
+                "description": null,
+                "dateCreated": "2020-07-09T12:39:11.2044019",
+                "createdBy": null, "datetime": "2020-07-09T08:39:11.2044019",
+                "timezone": "Eastern Standard Time",
+                "isTeleHealth": false,
+                "startDatetime": "2020-07-09T12:39:11",
+                "endDatetime": null,
+                "consentDatetime": null,
+                "isComplete": false,
+                "isConsent": false,
+                "isQuestionnairDone": false,
+                "questionnairDatetime": null,
+                "isCancelled": false,
+                "cancelDatetime": null,
+                "sendSms": false,
+                "sendEmail": false,
+                "providerName": null,
+                "providerId": "00000000-0000-0000-0000-000000000000",
+                "firstName": "mkmkmk",
+                "lastName": "mkmkm",
+                "email": null,
+                "dob": "0001-01-01T00:00:00",
+                "cellPhone": null,
+                "orgName": "EG Clinic",
+                "orgId": "482ffaa0-f855-4477-44b7-08d7dd0b0baf",
+                "consentFileUri": null,
+                "receiptFileUri": null,
+                "paymentEmail": null,
+                "logoFileUri": null,
+                "collectPayment": false,
+                "allowBillMe": false,
+                "billMe": false,
+                "paymentAmount": 0.0,
+                "paySessionId": null,
+                "payDatetime": null,
+                "payStatus": null,
+                "stripeAcountId": null,
+                "paymentIntentId": null,
+                "checkInStep": 0,
+                "hasQuestionnair": false,
+                "questionnaireTemplateId": "00000000-0000-0000-0000-000000000000",
+                "updateDatetime": null,
+                "responceDatetime": null,
+                "responce": "Pending",
+                "type": "eForm",
+                "questionnaireAnsweres": null,
+                "smsLogs": null,
+                "appointmentStates": null,
+                "appointmentForms": [
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    },
+                    {
+                        "id": "c272de1a-015a-4d87-3d3d-08d824049001",
+                        "questionnaireTemplateId": "008720d8-6f93-4b63-c219-08d8121346c4",
+                        "title": "Respiratory Screening",
+                        "schema": null,
+                        "submission": null,
+                        "dateTime": "2020-07-09T12:39:11.2048228",
+                        "tag": "Generic",
+                        "type": "Form",
+                        "uri": null,
+                        "accountId": "00000000-0000-0000-0000-000000000000",
+                        "appointment": null
+                    }
+                ],
+                "orgnization": null
+            },
+        ]
+
+    };
+
+</script>
+
+@{
+    Layout = null;
+}
+
